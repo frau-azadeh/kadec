@@ -34,7 +34,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text, completed }) => {
 
   return (
     <List.Item
-      key={id} // اضافه کردن key در اینجا فقط برای مرجع
+      key={id} 
       actions={[
         isEditing ? (
           <Button

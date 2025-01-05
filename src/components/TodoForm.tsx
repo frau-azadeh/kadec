@@ -8,10 +8,7 @@ const TodoForm: React.FC = () => {
   const { dispatch } = useTodos(); 
 
   const onFinish = (values: { task: string }) => {
-   
     dispatch({ type: "ADD_TODO", payload: { text: values.task } });
-
-
     form.resetFields();
   };
 
