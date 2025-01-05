@@ -5,6 +5,7 @@ import TodoForm from "@/components/TodoForm";
 import TodoList from "@/components/TodoList";
 import FilterButtons from "@/components/FilterButtons";
 import { useTodos } from "../context/TodoContext";
+import TaskPieChart from "@/components/TaskPieChart";
 
 const { Header, Content, Footer } = Layout;
 
@@ -53,6 +54,7 @@ const Dashboard: React.FC = () => {
             remainingTasks={remainingTasks}
           />
           <TodoList filter={filter} />
+          <TaskPieChart/>
         </div>
       </Content>
       <Footer
