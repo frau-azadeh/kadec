@@ -5,13 +5,13 @@ import { useTodos } from "@/context/TodoContext";
 
 const TodoForm: React.FC = () => {
   const [form] = Form.useForm();
-  const { dispatch } = useTodos(); // استفاده از Context API
+  const { dispatch } = useTodos(); 
 
   const onFinish = (values: { task: string }) => {
-    // ارسال اکشن اضافه کردن وظیفه به Context
+   
     dispatch({ type: "ADD_TODO", payload: { text: values.task } });
 
-    // پاک کردن فرم
+
     form.resetFields();
   };
 

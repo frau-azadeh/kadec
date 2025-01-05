@@ -4,7 +4,7 @@ import { List, Checkbox, Button, Input, Space } from "antd";
 import { DeleteOutlined, EditOutlined, SaveOutlined } from "@ant-design/icons";
 import { useTodos } from "../context/TodoContext";
 
-// تعریف نوع پراپ‌ها
+
 interface TodoListProps {
   filter: "all" | "completed" | "pending";
 }
@@ -57,7 +57,7 @@ const TodoList: React.FC<TodoListProps> = ({ filter }) => {
     setEditText("");
   };
 
-  // فیلتر کردن وظایف
+ 
   const filteredTodos = state.todos.filter((todo) => {
     if (filter === "completed") return todo.completed;
     if (filter === "pending") return !todo.completed;

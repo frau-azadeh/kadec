@@ -1,7 +1,8 @@
+'use client'
 import React, { useState } from "react";
 import { List, Checkbox, Button, Input, Space } from "antd";
 import { DeleteOutlined, EditOutlined, SaveOutlined } from "@ant-design/icons";
-import { useTodos } from "../context/TodoContext";
+import { useTodos } from "@/context/TodoContext";
 
 interface TodoItemProps {
   id: string;

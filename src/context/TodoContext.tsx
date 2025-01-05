@@ -7,14 +7,12 @@ import React, {
   useEffect,
 } from "react";
 
-// تعریف نوع وظایف
 interface Todo {
   id: string;
   text: string;
   completed: boolean;
 }
 
-// تعریف نوع اکشن‌ها
 type Action =
   | { type: "ADD_TODO"; payload: { text: string } }
   | { type: "DELETE_TODO"; payload: { id: string } }
@@ -23,7 +21,6 @@ type Action =
   | { type: "REORDER_TODOS"; payload: { todos: Todo[] } }
   | { type: "SET_TODOS"; payload: Todo[] };
 
-// تعریف نوع استیت
 interface State {
   todos: Todo[];
 }
@@ -33,12 +30,10 @@ interface TodoContextType {
   dispatch: React.Dispatch<Action>;
 }
 
-// مقدار اولیه استیت
 const initialState: State = {
-  todos: [], // مقدار پیش‌فرض خالی
+  todos: [], 
 };
 
-// Reducer برای مدیریت استیت
 const todoReducer = (state: State, action: Action): State => {
   switch (action.type) {
     case "ADD_TODO":
@@ -97,15 +92,14 @@ const TodoContext = createContext<TodoContextType | undefined>(undefined);
 export const TodoProvider = ({ children }: { children: ReactNode }) => {
   const [state, dispatch] = useReducer(todoReducer, initialState);
 
-  // بازیابی وظایف ذخیره‌شده از Local Storage فقط در کلاینت
   useEffect(() => {
     const savedTodos = localStorage.getItem("todos");
     if (savedTodos) {
       dispatch({ type: "SET_TODOS", payload: JSON.parse(savedTodos) });
     }
-  }, []); // فقط در اولین بار اجرا شود
+  }, []); 
 
-  // ذخیره وظایف در Local Storage
+  
   useEffect(() => {
     if (state.todos.length > 0) {
       localStorage.setItem("todos", JSON.stringify(state.todos));
