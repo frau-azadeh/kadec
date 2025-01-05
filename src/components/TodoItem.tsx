@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { List, Checkbox, Button, Input, Space } from "antd";
 import { DeleteOutlined, EditOutlined, SaveOutlined } from "@ant-design/icons";
+import TaskTimer from "@/components/TaskTimer"; 
 import { useTodos } from "@/context/TodoContext";
 
 interface TodoItemProps {
@@ -32,9 +33,12 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text, completed }) => {
     setIsEditing(false);
   };
 
+  const handleTimerComplete = () => {
+    alert(`تایمر برای وظیفه "${text}" تمام شد!`);
+  };
+
   return (
     <List.Item
-      key={id} 
       actions={[
         isEditing ? (
           <Button
@@ -63,19 +67,22 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text, completed }) => {
         </Button>,
       ]}
     >
-      <Space>
-        <Checkbox checked={completed} onChange={toggleTodo} />
-        {isEditing ? (
-          <Input
-            value={editedText}
-            onChange={(e) => setEditedText(e.target.value)}
-            style={{ width: "300px" }}
-          />
-        ) : (
-          <span style={{ textDecoration: completed ? "line-through" : "none" }}>
-            {text}
-          </span>
-        )}
+      <Space direction="vertical">
+        <Space>
+          <Checkbox checked={completed} onChange={toggleTodo} />
+          {isEditing ? (
+            <Input
+              value={editedText}
+              onChange={(e) => setEditedText(e.target.value)}
+              style={{ width: "300px" }}
+            />
+          ) : (
+            <span style={{ textDecoration: completed ? "line-through" : "none" }}>
+              {text}
+            </span>
+          )}
+        </Space>
+        <TaskTimer id={id} onComplete={handleTimerComplete} /> 
       </Space>
     </List.Item>
   );

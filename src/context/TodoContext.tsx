@@ -11,13 +11,15 @@ interface Todo {
   id: string;
   text: string;
   completed: boolean;
+  priority: "low" | "medium" | "high"; // اضافه کردن اولویت
 }
 
 type Action =
-  | { type: "ADD_TODO"; payload: { text: string } }
+  | { type: "ADD_TODO"; payload: { text: string; priority: "low" | "medium" | "high" } }
   | { type: "DELETE_TODO"; payload: { id: string } }
   | { type: "TOGGLE_TODO"; payload: { id: string } }
   | { type: "EDIT_TODO"; payload: { id: string; text: string } }
+  | { type: "EDIT_PRIORITY"; payload: { id: string; priority: "low" | "medium" | "high" } }
   | { type: "REORDER_TODOS"; payload: { todos: Todo[] } }
   | { type: "SET_TODOS"; payload: Todo[] };
 
@@ -31,7 +33,7 @@ interface TodoContextType {
 }
 
 const initialState: State = {
-  todos: [], 
+  todos: [],
 };
 
 const todoReducer = (state: State, action: Action): State => {
@@ -45,6 +47,7 @@ const todoReducer = (state: State, action: Action): State => {
             id: Date.now().toString(),
             text: action.payload.text,
             completed: false,
+            priority: action.payload.priority,
           },
         ],
       };
@@ -62,16 +65,24 @@ const todoReducer = (state: State, action: Action): State => {
             : todo
         ),
       };
-      case "EDIT_TODO":
-        return {
-          ...state,
-          todos: state.todos.map((todo) =>
-            todo.id === action.payload.id
-              ? { ...todo, text: action.payload.text }
-              : todo
-          ),
-        };      
-   
+    case "EDIT_TODO":
+      return {
+        ...state,
+        todos: state.todos.map((todo) =>
+          todo.id === action.payload.id
+            ? { ...todo, text: action.payload.text }
+            : todo
+        ),
+      };
+    case "EDIT_PRIORITY":
+      return {
+        ...state,
+        todos: state.todos.map((todo) =>
+          todo.id === action.payload.id
+            ? { ...todo, priority: action.payload.priority }
+            : todo
+        ),
+      };
     case "REORDER_TODOS":
       return {
         ...state,
@@ -97,9 +108,8 @@ export const TodoProvider = ({ children }: { children: ReactNode }) => {
     if (savedTodos) {
       dispatch({ type: "SET_TODOS", payload: JSON.parse(savedTodos) });
     }
-  }, []); 
+  }, []);
 
-  
   useEffect(() => {
     if (state.todos.length > 0) {
       localStorage.setItem("todos", JSON.stringify(state.todos));

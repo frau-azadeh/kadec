@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { List, Checkbox, Button, Input, Space } from "antd";
+import { List, Checkbox, Button, Input, Space, Tag } from "antd";
 import { DeleteOutlined, EditOutlined, SaveOutlined } from "@ant-design/icons";
 import { useTodos } from "../context/TodoContext";
 
@@ -62,6 +62,19 @@ const TodoList: React.FC<TodoListProps> = ({ filter }) => {
     return true;
   });
 
+  const getPriorityTagColor = (priority: "low" | "medium" | "high") => {
+    switch (priority) {
+      case "low":
+        return "green";
+      case "medium":
+        return "orange";
+      case "high":
+        return "red";
+      default:
+        return "blue";
+    }
+  };
+
   return (
     <div
       style={{
@@ -76,7 +89,7 @@ const TodoList: React.FC<TodoListProps> = ({ filter }) => {
         dataSource={filteredTodos}
         renderItem={(todo, index) => (
           <div
-            key={`${todo.id}-${index}`} 
+            key={`${todo.id}-${index}`}
             draggable
             onDragStart={() => handleDragStart(index)}
             onDragOver={handleDragOver}
@@ -115,7 +128,16 @@ const TodoList: React.FC<TodoListProps> = ({ filter }) => {
                   style={{ width: "100%" }}
                 />
               ) : (
-                todo.text
+                <span>
+                  {todo.text}{" "}
+                  <Tag color={getPriorityTagColor(todo.priority)}>
+                    {todo.priority === "low"
+                      ? "کم"
+                      : todo.priority === "medium"
+                      ? "متوسط"
+                      : "زیاد"}
+                  </Tag>
+                </span>
               )}
             </div>
             <Space>
