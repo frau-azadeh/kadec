@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React, { useState } from "react";
 import { List, Checkbox, Button, Input, Space } from "antd";
 import { DeleteOutlined, EditOutlined, SaveOutlined } from "@ant-design/icons";
@@ -34,6 +34,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text, completed }) => {
 
   return (
     <List.Item
+      key={id} // اضافه کردن key در اینجا فقط برای مرجع
       actions={[
         isEditing ? (
           <Button
