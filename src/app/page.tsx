@@ -1,7 +1,3 @@
 export default function Home() {
-  return (
-   <div>
-    سلام
-   </div>
-  );
+  return <div>سلام</div>;
 }

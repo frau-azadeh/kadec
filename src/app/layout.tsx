@@ -3,8 +3,6 @@ import localFont from "next/font/local";
 import "./globals.css";
 import "../styles/fonts.css";
 
-
-
 export const metadata: Metadata = {
   title: "To Do List",
   description: "This is my app, add delete update my task with this app",
@@ -17,9 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fa" dir="rtl">
-      <body className="bg-[#fff7ed]">
-        {children}
-      </body>
+      <body className="bg-[#fff7ed]">{children}</body>
     </html>
   );
 }

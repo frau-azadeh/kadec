@@ -61,4 +61,3 @@ Visit [http://localhost:3000](http://localhost:3000) to see the app in action.
 - **Azadeh Sharifi**
 - [GitHub Profile](https://github.com/frau-azadeh)
 - [LinkedIn Profile](https://linkedin.com/in/azadeh-sharifi)
-

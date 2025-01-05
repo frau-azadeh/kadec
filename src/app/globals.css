@@ -9,11 +9,11 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --primary-color: #FF6F00; /* نارنجی */
+    --primary-color: #ff6f00; /* نارنجی */
     --text-color: #666666; /* طوسی */
     --background-color: #fed7aa; /* پس‌زمینه */
-    --success-color: #4CAF50; /* سبز */
-    --error-color: #F44336; /* قرمز */
+    --success-color: #4caf50; /* سبز */
+    --error-color: #f44336; /* قرمز */
   }
 }
 
