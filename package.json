@@ -16,6 +16,7 @@
     "next": "14.2.20",
     "prettier": "^3.4.2",
     "react": "^18",
+    "react-beautiful-dnd": "^13.1.1",
     "react-dom": "^18",
     "react-icons": "^5.4.0"
   },
