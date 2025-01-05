@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ConfigProvider } from "antd"; // برای مدیریت تم
 import "./globals.css";
 import "../styles/fonts.css";
 import { TodoProvider } from "@/context/TodoContext";
@@ -16,10 +17,19 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl">
       <body className="bg-[#fff7ed]">
-          <TodoProvider>
-              {children}
-          </TodoProvider>
-        </body>
+        <ConfigProvider
+          direction="rtl" 
+          theme={{
+            token: {
+              fontFamily: "Vazir, sans-serif", 
+              colorPrimary: "#ff6f00", 
+              borderRadius: 6, 
+            },
+          }}
+        >
+          <TodoProvider>{children}</TodoProvider>
+        </ConfigProvider>
+      </body>
     </html>
   );
 }

@@ -13,6 +13,10 @@
   "dependencies": {
     "@ant-design/icons": "^5.5.2",
     "antd": "^5.22.7",
+    "dayjs": "^1.11.13",
+    "dayjs-jalali": "^0.0.2",
+    "jalali-moment": "^3.3.11",
+    "jalali-react-datepicker": "^1.2.3",
     "next": "14.2.20",
     "prettier": "^3.4.2",
     "react": "^18",
