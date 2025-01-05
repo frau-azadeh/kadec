@@ -4,6 +4,7 @@ import { List, Checkbox, Button, Input, Space } from "antd";
 import { DeleteOutlined, EditOutlined, SaveOutlined } from "@ant-design/icons";
 import { useTodos } from "../context/TodoContext";
 
+// تعریف نوع پراپ‌ها
 interface TodoListProps {
   filter: "all" | "completed" | "pending";
 }
@@ -13,12 +14,6 @@ const TodoList: React.FC<TodoListProps> = ({ filter }) => {
   const [draggingIndex, setDraggingIndex] = useState<number | null>(null);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editText, setEditText] = useState("");
-
-  const filteredTodos = state.todos.filter((todo) => {
-    if (filter === "completed") return todo.completed;
-    if (filter === "pending") return !todo.completed;
-    return true;
-  });
 
   const handleDragStart = (index: number) => {
     setDraggingIndex(index);
@@ -31,7 +26,7 @@ const TodoList: React.FC<TodoListProps> = ({ filter }) => {
   const handleDrop = (index: number) => {
     if (draggingIndex === null) return;
 
-    const reorderedTodos = [...filteredTodos];
+    const reorderedTodos = [...state.todos];
     const [draggedItem] = reorderedTodos.splice(draggingIndex, 1);
     reorderedTodos.splice(index, 0, draggedItem);
 
@@ -61,6 +56,13 @@ const TodoList: React.FC<TodoListProps> = ({ filter }) => {
     setEditingId(null);
     setEditText("");
   };
+
+  // فیلتر کردن وظایف
+  const filteredTodos = state.todos.filter((todo) => {
+    if (filter === "completed") return todo.completed;
+    if (filter === "pending") return !todo.completed;
+    return true;
+  });
 
   return (
     <div
