@@ -18,7 +18,8 @@
     "react": "^18",
     "react-beautiful-dnd": "^13.1.1",
     "react-dom": "^18",
-    "react-icons": "^5.4.0"
+    "react-icons": "^5.4.0",
+    "recharts": "^2.15.0"
   },
   "devDependencies": {
     "@types/node": "^20",
