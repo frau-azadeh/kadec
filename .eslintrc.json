@@ -1,3 +1,9 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "extends": ["next/core-web-vitals", "next/typescript"],
+  "rules": {
+    "react/jsx-key": "off", // غیرفعال کردن هشدار مربوط به کلید
+    "react/no-array-index-key": "warn", // هشدار در صورت استفاده از اندکس آرایه به‌عنوان کلید
+    "@typescript-eslint/no-unused-vars": "warn", // هشدار برای متغیرهای تعریف‌شده اما استفاده‌نشده
+    "@next/next/no-html-link-for-pages": "off" // مثال برای قوانین مربوط به لینک‌های Next.js
+  }
 }

@@ -76,7 +76,7 @@ const TodoList: React.FC<TodoListProps> = ({ filter }) => {
         dataSource={filteredTodos}
         renderItem={(todo, index) => (
           <div
-            key={`${todo.id}-${index}`} // افزودن کلید منحصربه‌فرد
+            key={`${todo.id}-${index}`} 
             draggable
             onDragStart={() => handleDragStart(index)}
             onDragOver={handleDragOver}
