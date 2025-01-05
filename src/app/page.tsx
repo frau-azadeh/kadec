@@ -1,7 +1,7 @@
 export default function Home() {
   return (
    <div>
-    to do list
+    <h1>سلام</h1>
    </div>
   );
 }
