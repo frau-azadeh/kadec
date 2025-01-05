@@ -1,16 +1,20 @@
-"use client";
 import React from "react";
 import { Button } from "antd";
 
 interface FilterButtonsProps {
+  setFilter: React.Dispatch<React.SetStateAction<"all" | "completed" | "pending">>;
   filter: "all" | "completed" | "pending";
-  setFilter: (filter: "all" | "completed" | "pending") => void;
   remainingTasks: number;
 }
 
-const FilterButtons: React.FC<FilterButtonsProps> = ({ filter, setFilter, remainingTasks }) => {
+const FilterButtons: React.FC<FilterButtonsProps> = ({
+  setFilter,
+  filter,
+  remainingTasks,
+}) => {
   return (
     <div style={{ textAlign: "center", margin: "20px 0" }}>
+      <p style={{ fontWeight: "bold" }}>تعداد وظایف باقی‌مانده: {remainingTasks}</p>
       <Button
         type={filter === "all" ? "primary" : "default"}
         onClick={() => setFilter("all")}
@@ -31,10 +35,6 @@ const FilterButtons: React.FC<FilterButtonsProps> = ({ filter, setFilter, remain
       >
         انجام‌نشده
       </Button>
-
-      <p style={{ marginTop: 20, fontWeight: "bold" }}>
-        تعداد وظایف باقی‌مانده: {remainingTasks}
-      </p>
     </div>
   );
 };
