@@ -9,19 +9,16 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --primary-color: #FF6F00; /* نارنجی */
+    --text-color: #666666; /* طوسی */
+    --background-color: #F5F5F5; /* پس‌زمینه */
+    --success-color: #4CAF50; /* سبز */
+    --error-color: #F44336; /* قرمز */
   }
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+  @apply font-vazir;
 }
