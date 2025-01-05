@@ -11,14 +11,14 @@
   :root {
     --primary-color: #FF6F00; /* نارنجی */
     --text-color: #666666; /* طوسی */
-    --background-color: #F5F5F5; /* پس‌زمینه */
+    --background-color: #fed7aa; /* پس‌زمینه */
     --success-color: #4CAF50; /* سبز */
     --error-color: #F44336; /* قرمز */
   }
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  background-color: var(--background-color);
+  color: var(--text-color);
   @apply font-vazir;
 }
