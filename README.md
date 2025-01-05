@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# To-Do List App
 
-## Getting Started
+A modern and user-friendly To-Do List application built with **Next.js**, **TypeScript**, and **Ant Design**. This project allows users to manage their tasks effectively by adding, editing, deleting, and filtering tasks.
 
-First, run the development server:
+---
 
-```bash
+## 🌟 Features
+
+- ✅ **Add Tasks**: Quickly add new tasks with a simple form.
+- 📝 **Edit Tasks**: Modify existing tasks effortlessly.
+- ❌ **Delete Tasks**: Remove tasks with a single click.
+- 📋 **Mark as Completed**: Change the status of tasks by clicking the checkbox.
+- 🔍 **Filter Tasks**: View all tasks, completed tasks, or incomplete tasks.
+- 💾 **Local Storage Support**: Tasks persist even after refreshing the page.
+- 📱 **Responsive Design**: Fully optimized for desktop and mobile devices.
+
+---
+
+## 🚀 Demo
+
+Check out the live demo:
+
+[To-Do List App Live Demo](https://kadec.vercel.app/)
+
+---
+
+## 🛠️ Tech Stack
+
+- ⚡ **Framework**: [Next.js](https://nextjs.org/)
+- 🛡️ **Language**: TypeScript
+- 🎨 **UI Library**: [Ant Design](https://ant.design/)
+- 🌐 **State Management**: Context API
+- 🔧 **Icons**: [React Icons](https://react-icons.github.io/react-icons/)
+- ☁️ **Deployment**: [Vercel](https://vercel.com/)
+
+---
+
+## 📝 Installation
+
+To run this project locally, follow these steps:
+
+### Clone the repository
+
+git clone https://github.com/frau-azadeh/kadec.git
+cd kadec
+
+### Install dependencies
+
+npm install
+
+### Run the development server
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit [http://localhost:3000](http://localhost:3000) to see the app in action.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 👨‍💻 Author
 
-## Learn More
+- **Azadeh Sharifi**
+- [GitHub Profile](https://github.com/frau-azadeh)
+- [LinkedIn Profile](https://linkedin.com/in/azadeh-sharifi)
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
