@@ -4,7 +4,6 @@ import { List, Checkbox, Button, Input, Space } from "antd";
 import { DeleteOutlined, EditOutlined, SaveOutlined } from "@ant-design/icons";
 import { useTodos } from "../context/TodoContext";
 
-
 interface TodoListProps {
   filter: "all" | "completed" | "pending";
 }
@@ -57,7 +56,6 @@ const TodoList: React.FC<TodoListProps> = ({ filter }) => {
     setEditText("");
   };
 
- 
   const filteredTodos = state.todos.filter((todo) => {
     if (filter === "completed") return todo.completed;
     if (filter === "pending") return !todo.completed;
@@ -78,7 +76,7 @@ const TodoList: React.FC<TodoListProps> = ({ filter }) => {
         dataSource={filteredTodos}
         renderItem={(todo, index) => (
           <div
-            key={todo.id}
+            key={`${todo.id}-${index}`} // افزودن کلید منحصربه‌فرد
             draggable
             onDragStart={() => handleDragStart(index)}
             onDragOver={handleDragOver}
