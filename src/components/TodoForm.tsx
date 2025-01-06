@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Form, Input, Button, Select } from "antd";
+import { Form, Input, Button, Select, Row, Col } from "antd";
 import { useTodos } from "@/context/TodoContext";
 
 const { Option } = Select;
@@ -18,32 +18,45 @@ const TodoForm: React.FC = () => {
     <Form
       form={form}
       onFinish={onFinish}
-      layout="inline"
-      style={{ marginBottom: "20px", justifyContent: "center" }}
+      layout="vertical"
+      style={{ marginBottom: "20px" }}
     >
-      <Form.Item
-        name="task"
-        rules={[{ required: true, message: "لطفاً وظیفه‌ای وارد کنید!" }]}
-        style={{ width: "200px" }}
-      >
-        <Input placeholder="اضافه کردن وظیفه جدید" />
-      </Form.Item>
-      <Form.Item
-        name="priority"
-        rules={[{ required: true, message: "لطفاً اولویت را انتخاب کنید!" }]}
-        style={{ width: "120px" }}
-      >
-        <Select placeholder="اولویت">
-          <Option value="low">کم</Option>
-          <Option value="medium">متوسط</Option>
-          <Option value="high">زیاد</Option>
-        </Select>
-      </Form.Item>
-      <Form.Item>
-        <Button type="primary" htmlType="submit">
-          افزودن
-        </Button>
-      </Form.Item>
+      <Row gutter={[16, 16]} justify="center">
+        <Col xs={24} sm={12} md={8}>
+          <Form.Item
+            name="task"
+            rules={[{ required: true, message: "لطفاً وظیفه‌ای وارد کنید!" }]}
+          >
+            <Input placeholder="اضافه کردن وظیفه جدید" />
+          </Form.Item>
+        </Col>
+
+        <Col xs={24} sm={12} md={8}>
+          <Form.Item
+            name="priority"
+            rules={[{ required: true, message: "لطفاً اولویت را انتخاب کنید!" }]}
+          >
+            <Select placeholder="اولویت">
+              <Option value="low">کم</Option>
+              <Option value="medium">متوسط</Option>
+              <Option value="high">زیاد</Option>
+            </Select>
+          </Form.Item>
+        </Col>
+
+        <Col xs={24} sm={12} md={8}>
+          <Form.Item>
+            <Button
+              type="primary"
+              htmlType="submit"
+              block
+              style={{ backgroundColor: "#0000FF", borderColor: "#0000FF" }}
+            >
+              افزودن
+            </Button>
+          </Form.Item>
+        </Col>
+      </Row>
     </Form>
   );
 };
