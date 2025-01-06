@@ -11,7 +11,7 @@ interface Todo {
   id: string;
   text: string;
   completed: boolean;
-  priority: "low" | "medium" | "high"; // اضافه کردن اولویت
+  priority: "low" | "medium" | "high"; 
 }
 
 type Action =
