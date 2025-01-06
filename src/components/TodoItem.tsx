@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { List, Checkbox, Button, Input, Space } from "antd";
 import { DeleteOutlined, EditOutlined, SaveOutlined } from "@ant-design/icons";
-import TaskTimer from "@/components/TaskTimer"; 
 import { useTodos } from "@/context/TodoContext";
 
 interface TodoItemProps {
@@ -82,7 +81,6 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text, completed }) => {
             </span>
           )}
         </Space>
-        <TaskTimer id={id} onComplete={handleTimerComplete} /> 
       </Space>
     </List.Item>
   );
