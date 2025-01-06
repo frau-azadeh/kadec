@@ -22,12 +22,14 @@ const Dashboard: React.FC = () => {
           background: "#374151",
           color: "#fff",
           display: "flex",
-          justifyContent: "space-between",
+          justifyContent: "center", // متن وسط قرار می‌گیرد
           alignItems: "center",
           padding: "0 16px",
         }}
       >
-        <h1 style={{ color: "#fff", margin: 0 , textAlign:"center"}}>مدیریت وظایف</h1>
+        <h1 style={{ color: "#fff", margin: 0, textAlign: "center" }}>
+          مدیریت وظایف
+        </h1>
       </Header>
       <Content
         style={{
@@ -35,7 +37,7 @@ const Dashboard: React.FC = () => {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          background:"#fff7ed"
+          background: "#fff7ed",
         }}
       >
         <div
@@ -49,7 +51,7 @@ const Dashboard: React.FC = () => {
           }}
         >
           <TodoForm />
-          <TaskProgress/>
+          <TaskProgress />
           <FilterButtons
             setFilter={setFilter}
             filter={filter}
@@ -65,7 +67,7 @@ const Dashboard: React.FC = () => {
           color: "#fff",
         }}
       >
-        To-Do App ©2025 Created by Azadeh Sharifi Soltani
+        To-Do App © Created by Azadeh Sharifi Soltani
       </Footer>
     </Layout>
   );
