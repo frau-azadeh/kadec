@@ -19,7 +19,7 @@ const Dashboard: React.FC = () => {
     <Layout style={{ minHeight: "100vh" }}>
       <Header
         style={{
-          background: "#001529",
+          background: "#374151",
           color: "#fff",
           display: "flex",
           justifyContent: "space-between",
@@ -27,14 +27,15 @@ const Dashboard: React.FC = () => {
           padding: "0 16px",
         }}
       >
-        <h1 style={{ color: "#fff", margin: 0 }}>مدیریت وظایف</h1>
+        <h1 style={{ color: "#fff", margin: 0 , textAlign:"center"}}>مدیریت وظایف</h1>
       </Header>
       <Content
         style={{
-          margin: "16px",
+          padding: "16px",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          background:"#fff7ed"
         }}
       >
         <div
@@ -60,7 +61,7 @@ const Dashboard: React.FC = () => {
       <Footer
         style={{
           textAlign: "center",
-          background: "#001529",
+          background: "#27272a",
           color: "#fff",
         }}
       >
