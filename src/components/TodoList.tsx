@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { List, Checkbox, Button, Input, Space, Tag } from "antd";
 import { DeleteOutlined, EditOutlined, SaveOutlined } from "@ant-design/icons";
-import { useTodos } from "../context/TodoContext";
+import { useTodos } from "@/context/TodoContext";
 
 interface TodoListProps {
   filter: "all" | "completed" | "pending";
@@ -78,10 +78,9 @@ const TodoList: React.FC<TodoListProps> = ({ filter }) => {
   return (
     <div
       style={{
-        padding: "10px",
         background: "#f9f9f9",
         borderRadius: "8px",
-        maxWidth: "500px",
+        maxWidth: "600px",
         margin: "auto",
       }}
     >
@@ -119,7 +118,10 @@ const TodoList: React.FC<TodoListProps> = ({ filter }) => {
               <Checkbox
                 checked={todo.completed}
                 onChange={() => toggleTodo(todo.id)}
-                style={{ marginRight: "10px" }}
+                style={{
+                  marginRight: "10px",
+                  color: todo.completed ? "#047857" : "inherit", // تغییر رنگ به سبز در صورت تیک خوردن
+                }}
               />
               {editingId === todo.id ? (
                 <Input
