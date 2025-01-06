@@ -16,13 +16,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fa" dir="rtl">
-      <body className="bg-[#fff7ed]">
+      <body>
         <ConfigProvider
           direction="rtl" 
           theme={{
             token: {
               fontFamily: "Vazir, sans-serif", 
-              colorPrimary: "#ff6f00", 
+              colorPrimary: "#f4f4f5", 
               borderRadius: 6, 
             },
           }}
