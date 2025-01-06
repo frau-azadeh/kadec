@@ -1,6 +1,6 @@
-'use client';
+"use client";
 import React, { useState } from "react";
-import { List, Checkbox, Button, Input, Space } from "antd";
+import { List, Checkbox, Button, Input, Space, Row, Col } from "antd";
 import { DeleteOutlined, EditOutlined, SaveOutlined } from "@ant-design/icons";
 import { useTodos } from "@/context/TodoContext";
 
@@ -32,56 +32,70 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text, completed }) => {
     setIsEditing(false);
   };
 
-  const handleTimerComplete = () => {
-    alert(`تایمر برای وظیفه "${text}" تمام شد!`);
-  };
-
   return (
-    <List.Item
-      actions={[
-        isEditing ? (
-          <Button
-            icon={<SaveOutlined />}
-            onClick={saveEditedTodo}
-            type="primary"
-          >
-            ذخیره
-          </Button>
-        ) : (
-          <Button
-            icon={<EditOutlined />}
-            onClick={() => setIsEditing(true)}
-            type="default"
-          >
-            ویرایش
-          </Button>
-        ),
-        <Button
-          danger
-          icon={<DeleteOutlined />}
-          onClick={deleteTodo}
-          type="default"
-        >
-          حذف
-        </Button>,
-      ]}
-    >
-      <Space direction="vertical">
-        <Space>
-          <Checkbox checked={completed} onChange={toggleTodo} />
+    <List.Item>
+      <Row
+        gutter={[16, 16]}
+        align="middle"
+        justify="space-between"
+        style={{
+          width: "100%",
+          border: "1px solid #ddd",
+          borderRadius: "8px",
+          boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
+          marginBottom: "10px",
+        }}
+      >
+        <Col xs={24} sm={18} md={18} style={{ display: "flex", alignItems: "center" }}>
+          <Checkbox
+            checked={completed}
+            onChange={toggleTodo}
+            style={{ marginRight: "10px" }}
+          />
           {isEditing ? (
             <Input
               value={editedText}
               onChange={(e) => setEditedText(e.target.value)}
-              style={{ width: "300px" }}
+              style={{ width: "100%" }}
             />
           ) : (
-            <span style={{ textDecoration: completed ? "line-through" : "none" }}>
+            <span
+              style={{
+                textDecoration: completed ? "line-through" : "none",
+                color: completed ? "#aaa" : "#000",
+                flexGrow: 1,
+              }}
+            >
               {text}
             </span>
           )}
-        </Space>
-      </Space>
+        </Col>
+
+        <Col xs={24} sm={6} md={6} style={{ textAlign: "right" }}>
+          <Space>
+            {isEditing ? (
+              <Button
+                type="primary"
+                icon={<SaveOutlined />}
+                onClick={saveEditedTodo}
+                style={{ backgroundColor: "green", borderColor: "green" }}
+              />
+            ) : (
+              <Button
+                type="default"
+                icon={<EditOutlined />}
+                onClick={() => setIsEditing(true)}
+              />
+            )}
+            <Button
+              type="default"
+              danger
+              icon={<DeleteOutlined />}
+              onClick={deleteTodo}
+            />
+          </Space>
+        </Col>
+      </Row>
     </List.Item>
   );
 };
